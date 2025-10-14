@@ -1,0 +1,4 @@
+pydantic-ai-slim[google,ag-ui]
+fastapi
+uvicorn[standard]
+python-dotenv
