@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  pydantic-agent:
+    build: ./pydantic-ai-agent
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  copilotkit-middleware:
+    build: ./copilotkit-direct-to-llm-middleware
+    ports:
+      - "4000:4000"
+    depends_on:
+      pydantic-agent:
+        condition: service_healthy
+    environment:
+      - AGENT_URL=http://pydantic-agent:8000/ag-ui
+    restart: unless-stopped
