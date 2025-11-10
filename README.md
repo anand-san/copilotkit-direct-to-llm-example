@@ -44,13 +44,13 @@ This example consists of three components:
    docker-compose up
    ```
 
-4. Open your browser to http://localhost:5173
+4. Open your browser to http://localhost:4173
 
 That's it! All three services will be running and connected.
 
 ## Services
 
-- **Frontend**: http://localhost:5173
+- **Frontend**: http://localhost:4173
 - **Middleware**: http://localhost:4000/graphql
 - **Agent**: http://localhost:8000
 

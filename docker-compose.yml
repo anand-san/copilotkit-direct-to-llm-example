@@ -5,11 +5,6 @@ services:
       - "8000:8000"
     environment:
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
     restart: unless-stopped
 
   copilotkit-middleware:
@@ -17,8 +12,7 @@ services:
     ports:
       - "4000:4000"
     depends_on:
-      pydantic-agent:
-        condition: service_healthy
+      - pydantic-agent
     environment:
       - AGENT_URL=http://pydantic-agent:8000/ag-ui
     restart: unless-stopped
@@ -26,7 +20,7 @@ services:
   react-frontend:
     build: ./react-frontend-client
     ports:
-      - "5173:5173"
+      - "4173:4173"
     depends_on:
       - copilotkit-middleware
     environment:
