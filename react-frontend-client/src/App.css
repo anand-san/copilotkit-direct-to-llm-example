@@ -2,7 +2,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -39,4 +38,112 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.recipe-section {
+  margin: 2rem 0;
+}
+
+.recipe-section h3 {
+  color: #495057;
+}
+
+.ingredients-container,
+.steps-container {
+  max-width: 600px;
+  margin: 0 auto;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ingredient-item {
+  background: #f7f2e6;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0;
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.ingredient-item:hover {
+  background: #f4f1e9;
+  transform: translateY(-1px);
+}
+
+.ingredient-quantity {
+  background: #fd79a8;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: bold;
+  min-width: fit-content;
+}
+
+.ingredient-name {
+  flex: 1;
+  font-weight: 500;
+  color: #495057;
+}
+
+.step-item {
+  background: #e3f2fd;
+  border: 1px solid #bbdefb;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-item:hover {
+  background: #e1f5fe;
+  transform: translateY(-1px);
+}
+
+.step-item.completed {
+  opacity: 0.6;
+  background: #e8f5e8;
+}
+
+.step-item.completed .step-text {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.step-text {
+  flex: 1;
+  text-align: left;
+}
+
+.checkmark {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.pop-in {
+  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.3) rotate(6deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }

@@ -13,7 +13,7 @@ import {
 import { HttpAgent } from "@ag-ui/client";
 
 const PORT = 4000;
-const AGENT_URL = "http://localhost:8000/ag-ui";
+const AGENT_URL = process.env.AGENT_URL || "http://localhost:8000/ag-ui";
 
 const app = express();
 

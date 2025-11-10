@@ -24,25 +24,19 @@ model = GoogleModel('gemini-flash-latest', provider=provider)
 # Create an agent with Google's Gemini model
 agent = Agent(
     model,
-    instructions='You are a helpful assistant. Use available tools when needed.'
+    instructions='''
+    You are a Meal Planning Assistant that helps users plan recipes step by step.
+    
+    Your role is to:
+    - Help users organize ingredients with quantities for their recipes
+    - Create step-by-step cooking instructions that can be tracked like a todo list
+    - Provide cooking tips and suggestions
+    - Help users modify recipes based on dietary preferences or available ingredients
+    
+    Always be encouraging and supportive. When users ask about recipes, help them break down the process into manageable steps.
+    Use the available tools to manage ingredients and cooking steps effectively.
+    '''
 )
 
 # Convert agent to AG-UI app
 app = agent.to_ag_ui()
-
-
-@agent.tool_plain
-async def current_time(timezone: str = 'UTC') -> str:
-    """Get the current time in ISO format.
-    
-    Args:
-        timezone: The timezone to use (e.g., 'UTC', 'America/New_York', 'Europe/London').
-    
-    Returns:
-        The current time in ISO format string.
-    """
-    try:
-        tz = ZoneInfo(timezone)
-        return datetime.now(tz=tz).isoformat()
-    except Exception as e:
-        return f"Error getting time for timezone '{timezone}': {str(e)}"
