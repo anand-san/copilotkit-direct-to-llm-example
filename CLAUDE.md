@@ -46,28 +46,28 @@ After running `docker-compose up`, all services will be available:
 #### React Frontend (react-frontend-client/)
 ```bash
 # Install dependencies
-bun install
+npm install
 
 # Development server
-bun run dev
+npm run dev
 
 # Build for production  
-bun run build
+npm run build
 
 # Lint code
-bun run lint
+npm run lint
 ```
 
 #### CopilotKit Middleware (copilotkit-direct-to-llm-middleware/)
 ```bash
 # Install dependencies
-bun install
+npm install
 
 # Development server with hot reload
-bun run dev
+npm run dev
 
 # Run directly
-bun run index.ts
+npm run start
 ```
 
 #### Pydantic AI Agent (pydantic-ai-agent/)

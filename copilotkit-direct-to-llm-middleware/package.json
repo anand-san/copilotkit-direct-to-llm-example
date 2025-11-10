@@ -4,13 +4,16 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run index.ts --watch"
+    "dev": "tsx watch index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc"
   },
   "devDependencies": {
-    "@types/bun": "latest",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
-    "@types/node": "^24.7.2"
+    "@types/node": "^24.7.2",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "typescript": "^5"

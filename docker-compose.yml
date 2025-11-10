@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   pydantic-agent:
     build: ./pydantic-ai-agent
@@ -23,4 +21,14 @@ services:
         condition: service_healthy
     environment:
       - AGENT_URL=http://pydantic-agent:8000/ag-ui
+    restart: unless-stopped
+
+  react-frontend:
+    build: ./react-frontend-client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - copilotkit-middleware
+    environment:
+      - VITE_COPILOTKIT_AGUI_URL=http://localhost:4000/graphql
     restart: unless-stopped

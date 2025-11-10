@@ -2,14 +2,14 @@ FROM node:24-alpine
 
 WORKDIR /app
 
+COPY . .
+
 COPY package.json package-lock.json* ./
 
 RUN npm ci
 
-COPY . .
-
 RUN npm run build
 
-EXPOSE 4000
+EXPOSE 5173
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
