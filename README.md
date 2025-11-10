@@ -87,3 +87,9 @@ See each component's directory for individual development instructions:
 3. The middleware forwards requests to the Pydantic AI agent using the AG-UI protocol
 4. The agent processes requests using Google Gemini
 5. Responses flow back through the middleware to the frontend
+
+### 📸 **Screenshots**
+
+<img width="1283" height="731" alt="Screenshot 2025-11-10 at 9 07 31 PM" src="https://github.com/user-attachments/assets/ac8a7da3-6f5e-43d6-91c5-d5b6406f0fe0" />
+
+<img width="1422" height="765" alt="Screenshot 2025-11-10 at 9 07 08 PM" src="https://github.com/user-attachments/assets/b49d27a6-49c8-4937-9446-f8dcb437cef5" />
