@@ -1,19 +1,19 @@
-import React from 'react';
-import { useRecipe } from '../contexts/RecipeContext';
+import React from "react";
+import { useRecipe } from "../contexts/RecipeContext/useRecipeContext";
 
 const RecipePlanner: React.FC = () => {
-  const { 
-    ingredients, 
-    recipeSteps, 
-    recipeName, 
-    newItemIds, 
-    toggleStepCompletion 
+  const {
+    ingredients,
+    recipeSteps,
+    recipeName,
+    newItemIds,
+    toggleStepCompletion,
   } = useRecipe();
 
   return (
     <div style={{ padding: "1rem" }}>
       <h2>{recipeName || "Recipe Planner"}</h2>
-      
+
       <div className="recipe-section">
         <h3>Ingredients</h3>
         <div className="ingredients-container">
@@ -29,7 +29,9 @@ const RecipePlanner: React.FC = () => {
                   newItemIds.has(ingredient.id) ? "pop-in" : ""
                 }`}
               >
-                <span className="ingredient-quantity">{ingredient.quantity}</span>
+                <span className="ingredient-quantity">
+                  {ingredient.quantity}
+                </span>
                 <span className="ingredient-name">{ingredient.name}</span>
               </div>
             ))

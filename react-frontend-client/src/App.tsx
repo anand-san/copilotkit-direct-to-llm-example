@@ -1,6 +1,6 @@
 import "./App.css";
 import { CopilotSidebar } from "@copilotkit/react-ui";
-import { RecipeProvider } from "./contexts/RecipeContext";
+import { RecipeProvider } from "./contexts/RecipeContext/RecipeContextProvider";
 import RecipePlanner from "./components/RecipePlanner";
 import { useRecipeActions } from "./hooks/useRecipeActions";
 
@@ -10,7 +10,6 @@ const CopilotActions = () => {
 };
 
 function App() {
-
   return (
     <RecipeProvider>
       <CopilotActions />
@@ -19,7 +18,8 @@ function App() {
         defaultOpen={true}
         labels={{
           title: "Meal Planning Assistant",
-          initial: "Hi! 👋 I'm here to help you plan delicious recipes! What would you like to cook today?",
+          initial:
+            "Hi! 👋 I'm here to help you plan delicious recipes! What would you like to cook today?",
         }}
       >
         <RecipePlanner />

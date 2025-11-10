@@ -1,5 +1,5 @@
 import { useCopilotAction } from "@copilotkit/react-core";
-import { useRecipe } from "../contexts/RecipeContext";
+import { useRecipe } from "../contexts/RecipeContext/useRecipeContext";
 
 export const useRecipeActions = () => {
   const { addIngredients, addRecipeSteps } = useRecipe();
@@ -18,7 +18,8 @@ export const useRecipeActions = () => {
       {
         name: "ingredients",
         type: "object[]",
-        description: "Array of ingredient objects with 'name' and 'quantity' properties",
+        description:
+          "Array of ingredient objects with 'name' and 'quantity' properties",
         required: true,
       },
     ],
@@ -29,7 +30,8 @@ export const useRecipeActions = () => {
 
   useCopilotAction({
     name: "manage_recipe_steps",
-    description: "Add cooking steps for a recipe that can be tracked and marked as completed",
+    description:
+      "Add cooking steps for a recipe that can be tracked and marked as completed",
     available: "remote",
     parameters: [
       {
